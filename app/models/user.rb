@@ -7,4 +7,6 @@ class User < ApplicationRecord
   enum role: { admin: 0, manager: 1, staff: 2}
 
   enum team: { cs: 0, ms: 1, corporate: 2}
+
+  has_many :attendances
 end

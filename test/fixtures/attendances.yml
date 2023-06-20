@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  worked: false
+  absence_type: 1
+  date: 2023-06-20
+
+two:
+  user: two
+  worked: false
+  absence_type: 1
+  date: 2023-06-20
