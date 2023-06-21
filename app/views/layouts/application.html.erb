@@ -11,9 +11,21 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="prose mx-auto">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+  <body>
+    <% if user_signed_in? %>
+      <div class="bg-gray-800 text-white px-6 py-4">
+        <div>
+          <%= link_to "Home", root_path, class: "text-white px-4" %>
+          <%= link_to "Attendances", attendances_path, class: "text-white px-4" %>
+          <%= link_to "Profile", edit_user_registration_path, class: "text-white px-4" %>
+        </div>
+      </div>
+    <% else %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <div class="m-6">
+      <%= yield %>
+    </div>
   </body>
 </html>
