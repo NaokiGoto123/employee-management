@@ -1,8 +1,8 @@
-<% User.teams.keys.each do |team| %>
-  <h2><%= team %></h2>
+<% User.where(role: "manager").each do |manager| %>
+  <h2><%= manager.firstname + " " + manager.lastname + "'s team" %></h2>
   <ul>
-    <% User.where(team: team).each do |user| %>
-      <li><%= user.firstname + " " + user.lastname + " (" + user.email + ")" %></li>
+    <% User.where(manager_id: manager.manager_id, role: "staff").each do |staff| %>
+      <li><%= staff.firstname + " " + staff.lastname + " (" + staff.email + ")" %></li>
     <% end %>
   </ul>
 <% end %>
