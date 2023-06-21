@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   enum role: { admin: 0, manager: 1, staff: 2}
 
-  enum team: { cs: 0, ms: 1, corporate: 2, management: 3}
+  belongs_to :manager, class_name: "User", foreign_key: "manager_id", optional: true
 
   has_many :attendances
 end

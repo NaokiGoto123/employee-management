@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_21_055131) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_21_060326) do
   create_table "attendances", force: :cascade do |t|
     t.integer "user_id", null: false
     t.boolean "worked"
@@ -32,7 +32,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_21_055131) do
     t.string "firstname"
     t.string "lastname"
     t.integer "role"
+    t.integer "manager_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["manager_id"], name: "index_users_on_manager_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
