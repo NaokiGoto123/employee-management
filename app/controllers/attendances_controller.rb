@@ -65,6 +65,6 @@ class AttendancesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def attendance_params
-      params.require(:attendance).permit(:user_id, :worked, :absence_type, :date)
+      params.require(:attendance).permit(:worked, :absence_type, :date).merge(user_id: current_user.id)
     end
 end
