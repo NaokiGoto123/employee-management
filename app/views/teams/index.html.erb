@@ -1,0 +1,8 @@
+<% User.teams.keys.each do |team| %>
+  <h2><%= team %></h2>
+  <ul>
+    <% User.where(team: team).each do |user| %>
+      <li><%= user.firstname + " " + user.lastname + " (" + user.email + ")" %></li>
+    <% end %>
+  </ul>
+<% end %>
