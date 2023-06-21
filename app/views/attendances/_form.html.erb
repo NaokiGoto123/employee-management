@@ -12,18 +12,13 @@
   <% end %>
 
   <div class="my-5">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
     <%= form.label :worked %>
     <%= form.check_box :worked, class: "block mt-2 h-5 w-5" %>
   </div>
 
   <div class="my-5">
     <%= form.label :absence_type %>
-    <%= form.number_field :absence_type, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :absence_type, Attendance.absence_types.keys.map { |type| [type.humanize, type] }, prompt: 'Select absence type' %>
   </div>
 
   <div class="my-5">
