@@ -3,7 +3,7 @@ class AttendancesController < ApplicationController
 
   # GET /attendances or /attendances.json
   def index
-    @attendances = Attendance.all
+    @attendances = Attendance.where(user_id: current_user.id)
   end
 
   # GET /attendances/1 or /attendances/1.json
