@@ -2,7 +2,7 @@
   <h2><%= manager.firstname + " " + manager.lastname + "'s team" %></h2>
   <ul>
     <% User.where(manager_id: manager.manager_id, role: "staff").each do |staff| %>
-      <li><%= staff.firstname + " " + staff.lastname + " (" + staff.email + ")" %></li>
+      <li><%=link_to staff.firstname + " " + staff.lastname + " (" + staff.email + ")", users_attendances_path(id: staff.id) %></li>
     <% end %>
   </ul>
 <% end %>
