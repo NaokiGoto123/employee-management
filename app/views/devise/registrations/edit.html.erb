@@ -14,6 +14,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :manager_id %><br />
+    <%= f.collection_select :manager_id, User.where(role: :manager), :id, :firstname %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
