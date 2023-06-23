@@ -1,1 +1,8 @@
 <%= @user.firstname + " " + @user.lastname + "'s attendances" %>
+<ul class="flex flex-col">
+    <% @attendances.each do |attendance| %>
+        <li class="flex items-center mb-2">
+            <%= attendance.date %>
+        </li>
+  <% end %>
+</ul>
