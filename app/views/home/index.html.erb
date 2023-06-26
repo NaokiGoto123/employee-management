@@ -1,1 +1,27 @@
-<h1>Home</h1>
+<table>
+  <tr>
+    <th class="w-24 h-24 border">Sun</th>
+    <th class="w-24 h-24 border">Mon</th>
+    <th class="w-24 h-24 border">Tue</th>
+    <th class="w-24 h-24 border">Wed</th>
+    <th class="w-24 h-24 border">Thu</th>
+    <th class="w-24 h-24 border">Fri</th>
+    <th class="w-24 h-24 border">Sat</th>
+  </tr>
+  <% date = Date.today.beginning_of_month %>
+  <% while date <= Date.today.end_of_month %>
+    <tr>
+      <% 7.times do %>
+        <% if date <= Date.today.end_of_month %>
+          <% attendance = @attendances.find { |a| a.date == date } %>
+          <td class="<%= attendance ? (attendance.worked ? 'bg-blue-500' : 'bg-red-500') : 'bg-gray-500' %> w-24 h-24 border">
+            <span class="flex items-center justify-center h-full"><%= date.day %></span>
+          </td>
+        <% else %>
+          <td class="w-24 h-24 border"></td>
+        <% end %>
+        <% date += 1.day %>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
