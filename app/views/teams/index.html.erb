@@ -3,7 +3,7 @@
     <div class="mb-6">
       <h2 class="text-2xl font-bold mb-2"><%= manager.firstname + " " + manager.lastname + "'s team" %></h2>
       <ul>
-        <% User.where(manager_id: manager.manager_id, role: "staff").each do |staff| %>
+        <% User.where(manager_id: manager.manager_id, role: ["staff", "manager"]).each do |staff| %>
           <li class="mb-2">
             <%= link_to staff.firstname + " " + staff.lastname + " (" + staff.email + ")", users_attendances_path(id: staff.id), class: "text-blue-500 hover:underline" %>
           </li>
