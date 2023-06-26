@@ -1,18 +1,15 @@
 <div id="<%= dom_id attendance %>">
   <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= attendance.user_id %>
-  </p>
-
-  <p class="my-5">
     <strong class="block font-medium mb-1">Worked:</strong>
     <%= attendance.worked %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Absence type:</strong>
-    <%= attendance.absence_type %>
-  </p>
+  <% if !attendance.worked%>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Absence type:</strong>
+      <%= attendance.absence_type %>
+    </p>
+  <% end %>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Date:</strong>
