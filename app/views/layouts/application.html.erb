@@ -23,6 +23,7 @@
           <% end %>
           <%= link_to "Attendances", attendances_path, class: "text-white px-4" %>
           <%= link_to "Profile", edit_user_registration_path, class: "text-white px-4" %>
+          <%= content_tag :span, "Logged in as #{current_user.firstname} #{current_user.lastname}", class: "text-white px-4" %>
         </div>
       </div>
     <% else %>
