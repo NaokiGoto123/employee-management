@@ -1,5 +1,5 @@
 <h2 class="text-2xl font-bold mb-2"><%= @user.firstname + " " + @user.lastname + "'s attendances" %></h2>
 
 <div id="attendances" class="min-w-full">
-    <%= render @attendances %>
+    <%= render partial: 'users/attendance', collection: @attendances %>
 </div>
