@@ -15,7 +15,9 @@
         <% if date <= Date.today.end_of_month %>
           <% attendance = @attendances.find { |a| a.date == date } %>
           <td class="<%= attendance ? (attendance.worked ? 'bg-blue-500' : 'bg-red-500') : 'bg-gray-500' %> w-24 h-24 border">
-            <span class="flex items-center justify-center h-full"><%= date.day %></span>
+            <%= link_to attendance do %>
+              <span class="flex items-center justify-center h-full"><%= date.day %></span>
+            <% end %>
           </td>
         <% else %>
           <td class="w-24 h-24 border"></td>
